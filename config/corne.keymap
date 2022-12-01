@@ -22,10 +22,6 @@
 
 #define O_TOG OUT_TOG
 
-&kscan0 {
-    debounce-period = <10>;
-};
-
 / {
 
     conditional_layers {
@@ -36,36 +32,6 @@
             then-layer = <ADJUST>;
         };
     };
-    behaviors {
-        tdf: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
-            #binding-cells = <0>;
-            tapping-term-ms = <100>;
-            bindings = <&kp G>, <&kp F>;
-        };
-        tde: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_1";
-            #binding-cells = <0>;
-            tapping-term-ms = <100>;
-            bindings = <&kp E>, <&kp U>;
-        };
-        tdt: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_2";
-            #binding-cells = <0>;
-            tapping-term-ms = <100>;
-            bindings = <&kp I>, <&kp TAB>;
-        };
-        tdr: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_3";
-            #binding-cells = <0>;
-            tapping-term-ms = <100>;
-            bindings = <&kp R>, <&kp O>;
-        };
-    };    
     
 // -----------------------------------------------------------------------------------------
         keymap {
@@ -129,13 +95,13 @@
         
         game_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB/I|  Q  |  W  | E/U | R/O |  T  |   |     |     |     |     |     |      |
-// | SHFT |  A  |  S  |  D  | G/F |  H  |   |     |     |     |     |     | EXIT |
+// | TAB  |  Q  |  W  |  E  |  R  |  T  |   |     |     |     |     |     |      |
+// | SHFT |  A  |  S  |  D  |  F  |  G  |   |     |     |     |     |     | EXIT |
 // | CTRL |  Z  |  X  |  C  |  V  |  B  |   |     |     |     |     |     |      |
 //                    |  Y  | LWR | SPC |   | ENT | RSE | ALT |        
             bindings = <
-                &tdt      &kp Q &kp W &tde  &tdr   &kp T        &trans  &trans  &trans   &trans  &trans  &trans
-                &kp LSHFT &kp A &kp S &kp D &tdf   &kp G        &trans  &trans  &trans   &trans  &trans  &trans
+                &kp TAB   &kp Q &kp W &kp E &kp R  &kp T        &trans  &trans  &trans   &trans  &trans  &trans
+                &kp LSHFT &kp A &kp S &kp D &kp F  &kp G        &trans  &trans  &trans   &trans  &trans  &trans
                 &kp LCTRL &kp Z &kp X &kp C &kp V  &kp B        &trans  &trans  &trans   &trans  &trans  &trans
                                       &kp Y &trans &kp SPACE    &kp RET &trans  &kp RALT
             >;
