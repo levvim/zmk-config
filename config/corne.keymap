@@ -84,8 +84,8 @@
 // |BT_CLR|  BT0 |  BT1 | BT2  |  BT3 | BT4  |   |O_USB|O_BLE|     |      |      |       |
 //                      |      |      |      |   |O_TOG|     |     |        
             bindings = <
-                &kp F1      &kp F2       &kp F3       &kp F4     &kp F5   &kp F6         &kp F7       &kp F8       &kp F9     &kp F10     &kp F11    &tog LOCK
-                &trans      &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &trans   &trans         &trans       &trans       &kp C_PREV  &kp C_PP   &kp C_NEXT &tog GAME
+                &kp F1      &kp F2       &kp F3       &kp F4     &kp F5   &kp F6         &kp F7       &kp F8       &kp F9     &kp F10     &kp F11    &tog LCK
+                &trans      &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &trans   &trans         &trans       &trans       &kp C_PREV  &kp C_PP   &kp C_NEXT &tog GME
                 &bt BT_CLR  &bt BT0      &bt BT1      &bt BT2    &bt BT3  &bt BT4        &out OUT_USB &out OUT_BLE &trans     &trans      &trans     &trans
                                                       &trans     &trans   &trans         &trans       &trans       &trans
             >;
