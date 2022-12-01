@@ -22,8 +22,8 @@
         compatible = "zmk,conditional-layers";
 
         tri_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
+            if-layers = <LWR RSE>;
+            then-layer = <ADJ>;
         };
     };
     
