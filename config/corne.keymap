@@ -17,8 +17,8 @@
 #define BT4 BT_SEL 4
 
 &mt {
-    flavor = "hold-preferred";
-    tapping-term-ms = <600>;
+    flavor = "tap-preferred";
+    tapping-term-ms = <400>;
 };
 
 / {
