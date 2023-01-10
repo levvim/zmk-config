@@ -3,13 +3,13 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define DEF 0
-#define MAC 1
-#define LWR 2
-#define RSE 3
-#define ADJ 4
-#define GME 5
-#define LCK 6
+#define def 0
+#define mac 1
+#define lwr 2
+#define rse 3
+#define adj 4
+#define gme 5
+#define lck 6
 
 #define BT0 BT_SEL 0
 #define BT1 BT_SEL 1
@@ -19,7 +19,7 @@
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <400>;
+    tapping-term-ms = <300>;
 };
 
 / {
@@ -50,8 +50,8 @@
         compatible = "zmk,conditional-layers";
 
         tri_layer {
-            if-layers = <LWR RSE>;
-            then-layer = <ADJ>;
+            if-layers = <lwr rse>;
+            then-layer = <adj>;
         };
     };
     
@@ -60,7 +60,7 @@
                 compatible = "zmk,keymap";
 
                 def_layer {
-                            label = "DEF";
+                            label = "def";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W    |  E    |  R   |  T  |   |  Y  |  U   |  I    |  O   |  P   | BKSP |
 // | SHFT |A/CTRL|S/SHFT|  D    |  F   |G/LWR|   |H/RSE|  J   |  K    |L/SHFT|;/CTRL|  '   |
@@ -75,7 +75,7 @@
                 };
                 
                 mac_layer {
-                            label = "MAC";
+                            label = "mac";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W    |  E    |  R   |  T  |   |  Y  |  U   |  I    |  O   |  P  | BKSP |
 // | SHFT |A/GUI|S/SHFT |  D    |  F   |G/LWR|   |H/RSE|  J   |  K    |L/SHFT|;/GUI|  '   |
@@ -90,7 +90,7 @@
                 };
                 
                 lwr_layer {
-                            label = "LWR";
+                            label = "lwr";
 // -----------------------------------------------------------------------------------------
 // |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6   |  7  |  8  |  9  |  0  | DEL  |
 // | SHFT |  4  |  5  |  6  |     |     |   | LFT  | DWN |  UP | RGT |     |      |
@@ -105,37 +105,37 @@
                 };
 
                 rse_layer {
-                            label = "RSE";
+                            label = "rse";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | SHFT |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |   `  |
-// | CTRL |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+// | SHFT |     |     |     |     |     |   |  -  |  =  |  \  |  [  |  ]  |   `  |
+// | CTRL |     |     |     |     |     |   |  _  |  +  | "|" |  {  |  }  |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR  &kp BSPC
+   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp BSLH        &kp LBKT &kp RBKT  &kp GRAVE
+   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp PIPE        &kp LBRC &kp RBRC  &kp TILDE
                     	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
                         >;
                 };
 
                 adj_layer {
-                            label = "ADJ";
+                            label = "adj";
 // -----------------------------------------------------------------------------------------
 // |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   | F7  |  F8 | F9  | F10  |  F11 |L_LOCK |
 // | CLCK |VOL_DN|VOL_UP| MUTE |      |      |   |     |     | PREV|PAUSE | NEXT |L_GAME |
 // |BT_CLR|  BT0 |  BT1 | BT2  |  BT3 | BT4  |   |O_USB|O_BLE|     |      |      |L_MAC  |
 //                      |      |      |      |   |O_TOG|     |     |        
             bindings = <
-                &kp F1      &kp F2       &kp F3       &kp F4     &kp F5   &kp F6         &kp F7       &kp F8       &kp F9     &kp F10     &kp F11    &tog LCK
-                &kp CLCK    &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &trans   &trans         &trans       &trans       &kp C_PREV  &kp C_PP   &kp C_NEXT &tog GME
-                &bt BT_CLR  &bt BT0      &bt BT1      &bt BT2    &bt BT3  &bt BT4        &out OUT_USB &out OUT_BLE &trans     &trans      &trans     &tog MAC
+                &kp F1      &kp F2       &kp F3       &kp F4     &kp F5   &kp F6         &kp F7       &kp F8       &kp F9     &kp F10     &kp F11    &tog lck
+                &kp CLCK    &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &trans   &trans         &trans       &trans       &kp C_PREV  &kp C_PP   &kp C_NEXT &tog gme
+                &bt BT_CLR  &bt BT0      &bt BT1      &bt BT2    &bt BT3  &bt BT4        &out OUT_USB &out OUT_BLE &trans     &trans      &trans     &tog mac
                                                       &trans     &trans   &trans         &trans       &trans       &trans
             >;
         };
         
         gme_layer {
-                    label = "GME";
+                    label = "gme";
 // -----------------------------------------------------------------------------------------
 // | TAB  |  Q  |  W  |  E  |  R  |  T  |   |     |     |     |     |     |      |
 // | SHFT |  A  |  S  |  D  |  F  |  G  |   |     |     |     |     |     | EXIT |
@@ -157,7 +157,7 @@
 // If https://github.com/zmkfirmware/zmk/issues/405 is implemented, this layer can be
 // replaced by a native behavior in the future.
         lck_layer {
-                    label = "LCK";
+                    label = "lck";
             bindings = <
                 &none      &none      &none      &none      &none      &none                            &none      &none      &none      &none      &none      &trans
                 &none      &none      &none      &none      &none      &none                            &none      &none      &none      &none      &none      &none
