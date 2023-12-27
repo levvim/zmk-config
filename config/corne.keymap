@@ -31,13 +31,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp LALT>, <&kp LGUI>;
         };
-        td_e3: tap_dance_mod_tap {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_MOD_TAP";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp E>, <&kp N3>;
-        };
     };
     conditional_layers {
         compatible = "zmk,conditional-layers";
